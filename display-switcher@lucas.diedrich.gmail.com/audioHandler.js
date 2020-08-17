@@ -1,6 +1,6 @@
 
 const	St             = imports.gi.St,
-		Lang           = imports.lang,
+		GObject = imports.gi.GObject,
 		Clutter        = imports.gi.Clutter,
 		ExtensionUtils = imports.misc.extensionUtils,
 		Local          = ExtensionUtils.getCurrentExtension(),
@@ -12,10 +12,12 @@ const	St             = imports.gi.St,
  * This class should handle the selection of the right audio output depending on
  * which monitor is selected.
  */
-const AudioHandler = new Lang.Class({
-	Name: 'AudioHandler',
-	
-	init: function(){
-		log("THIS SHOULD NOT BE USED YET!");
+const AudioHandler = GObject.registerClass({
+	GTypeName: 'AudioHandler'
 	},
+	class AudioHandler extends GObject.Object {
+	
+	init(){
+		log("THIS SHOULD NOT BE USED YET!");
+	}
 });

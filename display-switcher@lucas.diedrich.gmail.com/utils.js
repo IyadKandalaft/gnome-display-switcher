@@ -21,11 +21,12 @@ const XRANDR_PATH    = "which xrandr";
  */
 function _run( command )
 {
+    log(`Running command ${command}`);
     let result;
 
     try 
     {
-      let [res, out, err, status] = GLib.spawn_command_line_sync(command, null, null, null, null);
+      let [res, out, err, status] = GLib.spawn_command_line_sync(command);
       
       result = {success: res, callback: out.toString()};
     } 
@@ -105,10 +106,11 @@ function _initTranslations(domain)
  */
 function _getDirPath(relPath)
 {
+
     let dir = Local.dir.get_child(relPath);
-    if (dir.query_exists(null))
+    if (dir.query_exists(null)){
         return dir.get_path();
-    else
+    } else
         throw new Error(_("Unable to load path: ") + relPath);
 }
 

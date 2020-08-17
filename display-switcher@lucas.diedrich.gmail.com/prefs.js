@@ -4,7 +4,7 @@
  */
 const   Gio     = imports.gi.Gio,
         Gtk     = imports.gi.Gtk,
-        Lang    = imports.lang,
+        GObject = imports.gi.GObject,
         ExtensionUtils = imports.misc.extensionUtils,
         Local       = ExtensionUtils.getCurrentExtension(),
         Utils       = Local.imports.utils,
@@ -12,20 +12,22 @@ const   Gio     = imports.gi.Gio,
 
 function init(){}
 
-const ShortcutWidget = new Lang.Class({
-    Name: 'Shortcut.Prefs.Widget',
-    KEY_MOD: [0,1],
+const ShortcutWidget = GObject.registerClass({
+    GTypeName: 'Shortcut.Prefs.Widget',
+    },
+    class ShortcutWidget extends GObject.Object {
     
-    _init: function(tree_view, list_store)
+    _init(tree_view, list_store)
     {
         this.settings = Utils._getSettings();
         this.treeview = tree_view;
         this.store    = list_store;
+        this.KEY_MOD  = [0,1];
 
         this._configTreeview();
         this._refresh();
-    },
-    _configTreeview: function() 
+    }
+    _configTreeview() 
     {
         this.iterator = this.store.append();
         
@@ -35,11 +37,11 @@ const ShortcutWidget = new Lang.Class({
         });
         
         renderer.connect('accel-edited',
-            Lang.bind(this, function(renderer, path, key, mods) {
+            (renderer, path, key, mods) => {
                 let accel = Gtk.accelerator_name(key, mods);
                 this._updateShortcut(accel);
                 this.settings.set_strv('shortcut-switch', [accel]);
-            })
+            }
         );
         
         let column = new Gtk.TreeViewColumn();
@@ -48,8 +50,8 @@ const ShortcutWidget = new Lang.Class({
         column.add_attribute(renderer, 'accel-mods', this.KEY_MOD[1]);
 
         this.treeview.append_column(column);
-    },
-    _updateShortcut: function(accel) 
+    }
+    _updateShortcut(accel) 
     {
         let [key, mods] = Gtk.accelerator_parse(accel);
         this.store.set(
@@ -57,21 +59,21 @@ const ShortcutWidget = new Lang.Class({
             this.KEY_MOD,
             [key, mods]
         );
-    },
-    _refresh: function()
+    }
+    _refresh()
     {
         this._updateShortcut( this.settings.get_strv("shortcut-switch")[0] );
     }
 });
 
-const DSSettingsWidget = new Lang.Class({
-    Name: 'DS.Prefs.Widget',
-    GTypeName: 'DSSettingsWidget',
-    Extends: Gtk.Box,
+const DSSettingsWidget = GObject.registerClass({
+    GTypeName: 'DSSettingsWidget'
+    },
+    class DSSettingsWidget extends Gtk.Box {
 
-    _init: function(params) 
+    _init(params) 
     {
-        this.parent(params);
+        super._init(params);
         this.settings = Utils._getSettings();
 
         this.builder = new Gtk.Builder();
@@ -79,8 +81,8 @@ const DSSettingsWidget = new Lang.Class({
 
         this._load();
         this._translate();
-    },
-    _load: function()
+    }
+    _load()
     {
         let main_container = this.builder.get_object("dsui_main");
         let list_store = this.builder.get_object("dsui_store");
@@ -102,17 +104,17 @@ const DSSettingsWidget = new Lang.Class({
         this.f_size.set_value(this.settings.get_int('mode-icon-size'));
         this.f_preview.set_pixel_size(this.settings.get_int('mode-icon-size'));
 
-        this.f_size.connect('value-changed', Lang.bind(this, function(scalable) {
+        this.f_size.connect('value-changed', (scalable) => {
             this.settings.set_int('mode-icon-size', scalable.get_value());
             this.f_preview.set_pixel_size(this.settings.get_int('mode-icon-size'));
-        }));
+        });
 
         this.pack_start(main_container, true, true, 0);
         
         this.settings.bind("show-running-icon", this.f_show_icon , "active", Gio.SettingsBindFlags.DEFAULT);
         let shortcut_widget = new ShortcutWidget(this.f_treeview, list_store);
-    },
-    _translate: function()
+    }
+    _translate()
     {
         this.l_show_icon.set_text(_("Show top icon"));
         this.l_show_icon.set_tooltip_text(_("A top icon which show if the extension has been loaded succesfully"));
@@ -136,7 +138,7 @@ const DSSettingsWidget = new Lang.Class({
 
         this.settings.get_int('mode-icon-size')
         this.f_preview.set_tooltip_text(_("The preview of the above size"));
-    },
+    }
 });
 
 function buildPrefsWidget() {

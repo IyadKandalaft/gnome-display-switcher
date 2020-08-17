@@ -1,6 +1,6 @@
 
 const	St             = imports.gi.St,
-		Lang           = imports.lang,
+		GObject = imports.gi.GObject,
 		Clutter        = imports.gi.Clutter,
 		ExtensionUtils = imports.misc.extensionUtils,
 		Local          = ExtensionUtils.getCurrentExtension(),
@@ -11,21 +11,23 @@ const	St             = imports.gi.St,
  *
  * This class should handle the Monitor osd using default gnome support if available.
  */
-const OsdManager = new Lang.Class({
-	Name: 'OsdManager',
+const OsdManager = GObject.registerClass({
+	GTypeGTypeName: 'OsdManager'
+	},
+	class OsdManager extends GObject.Object {
 	//NOT IMPLEMENTED YET!
-	init: function(){
+	init(){
 		log("THIS SHOULD NOT BE USED!");
 		// log(screen.get_n_monitors() + " Nº Monitors");
 		// log(screen.get_primary_monitor() + " Nº Primary");		
 		// log(screen.get_current_monitor() + " Nº Current");		
-	},
+	}
 	//NOT IMPLEMENTED YET!
-	show: function(){
+	show(){
 		Main.osdMonitorLabeler.show(Main.layoutManager.monitors[0].index + "");
-	},
+	}
 	//NOT IMPLEMENTED YET!
-	hide: function(){
+	hide(){
 		Main.osdMonitorLabeler.hide(Main.layoutManager.monitors[0].index + "");
 	}	
 	
