@@ -6,7 +6,7 @@
 #
 
 VER="unstable"
-EXT="./display-switcher@lucas.diedrich.gmail.com"
+EXT="./display-switcher@iyadk.com"
 SCHEMA="$EXT/schemas"
 LOCALE="$EXT/locale"
 LOCALES=$(ls ./locale/ | egrep .po$ | cut -d '.' -f1)

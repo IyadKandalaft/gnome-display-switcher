@@ -1,32 +1,28 @@
-# DISABLED!!!! - Gnome-shell - Display Switcher Extension
+# Gnome Display Switcher Extension
 
-!!!!!attention!!!!!!
-*This extension will be disabled since this functionalty is available at Gnome 3.26+. To use Gnome just press 'Super' + P and hold Super.*
-
-Display Switcher is an extension for gnome-shell 3.12+ that provides an easy and fast way to switch your display monitors.
-
+Display Switcher is an extension for gnome-shell 3.36+ that provides an easy and fast way to switch your display monitors.
 
   - Fast way to select display monitors.
   - You can choose what you want and not just pressing praying for it.
-  - Just press Super + I or custom trigger.
+  - Just press Super + I or configure a custom trigger.
 
-![alt tag](https://github.com/lucasdiedrich/gnome-display-switcher/raw/master/demo.jpg)
+![alt tag](raw/master/demo.jpg)
 
 
 ### Version 
 
-[0.7.1 - See changelog](https://github.com/lucasdiedrich/gnome-display-switcher/blob/master/CHANGELOG.md)
+[2.0 - See changelog](https://github.com/lucasdiedrich/gnome-display-switcher/blob/master/CHANGELOG.md)
 
 ### Installation
 
 Installation using Gnome's Extension Website:
 
-[https://extensions.gnome.org/extension/1030/display-switcher/](https://extensions.gnome.org/extension/1030/display-switcher/)
+[Gnome Extensions Website - Display Switcher](https://extensions.gnome.org/extension/1030/display-switcher/)
 
-Installation using terminal: 
+Installation from your local terminal: 
 
 ```sh
-bash -c 'wget -O install-ds.sh https://github.com/lucasdiedrich/gnome-display-switcher/raw/master/install-ds.sh && chmod +x install-ds.sh && ./install-ds.sh'
+bash -c 'wget -O install-ds.sh https://github.com/iyadkandalaft/gnome-display-switcher/raw/master/install-ds.sh && chmod +x install-ds.sh && ./install-ds.sh'
 
 ```
 
@@ -34,7 +30,7 @@ bash -c 'wget -O install-ds.sh https://github.com/lucasdiedrich/gnome-display-sw
 
 Want to contribute? Great! Any kind of contribution is valid. See the Contribution Guide for details.
 
-[Contribution Guide](https://github.com/lucasdiedrich/gnome-display-switcher/blob/master/CONTRIBUTING.md)
+[Contribution Guide](blob/master/CONTRIBUTING.md)
 
 ### Todos
 
@@ -44,7 +40,9 @@ Want to contribute? Great! Any kind of contribution is valid. See the Contributi
  
 ###	Thanks
 
-This extension couldn't be done without some help of some people and principle this peoples work, so, below you see the best extensions which i've been based so on. This extension may have some of the below projects code inside of it:
+This extension was originally developed by Lucas Diedrich and I thank him for his contribution that I relied on for many years.  Lucas has decided to retire the extension but I've decided to continue maintaining it so that other may enjoy it.
+
+This work was inspired by the following:
 
  - https://github.com/OttoAllmendinger/gnome-shell-imgur/blob/master/src/extension.js#L65
  - https://github.com/simonthechipmunk/turnoffdisplay
@@ -53,13 +51,14 @@ This extension couldn't be done without some help of some people and principle t
  - https://gist.github.com/buzztaiki/1487781#file-gjs-io-sample-js-L26
  - Gnome-shell source code
 
+
 And "feborges", "Jasper" from gnome-shell IRC.
 
 
 ### License
  ----
 
-[GPL v2](https://github.com/lucasdiedrich/gnome-display-switcher/blob/master/LICENSE)
+[GPL v2](blob/master/LICENSE)
 
 #### Icons license
 

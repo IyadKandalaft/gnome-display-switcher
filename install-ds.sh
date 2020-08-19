@@ -1,12 +1,14 @@
 #!/bin/bash
 
 #
-# This scripts install an aewsome display switcher for Gnome 
-# shell 3.12+. Read the specs over: 
-# https://github.com/lucasdiedrich/gnome-display-switcher/
-# Created by: Lucas Diedrich
-# Date: 21/01/15
+# This scripts install an display switching extension for Gnome 
+# Shell 3.36+
 #
+# https://github.com/iyadkandalaft/gnome-display-switcher/
+# Created by: Lucas Diedrich
+# Maintained by: Iyad Kandalaft
+#
+
 clear
 #
 # Variables
@@ -17,16 +19,20 @@ v_file="display-switcher-latest.tar.gz"
 #
 # Install Area
 #
-mkdir -p $v_extfolder
-echo "Entering local Gnome Shell Extensions folder..."
-cd $v_extfolder
+
+cd /tmp
 
 echo "Downloading zip file..."
-wget -O $v_file https://github.com/lucasdiedrich/gnome-display-switcher/raw/master/$v_file
+wget -O $v_file https://github.com/iyadkandalaft/gnome-display-switcher/master.zip
 
 echo "Extracting extension..."
-tar -zxvf $v_file
-rm -f $v_file
+unzip $v_file
+mv gnome-display-switcher-master/display-switcher@iyadk.com $v_extfolder
 
-rm -- "$0"
+echo "Creating extensions directory if it doesn't exist"
+[[ -d $v_extfolder ]] || mkdir -p $v_extfolder
+
+echo "Cleaning up temporary files"
+rm -f $v_file gnome-display-switcher-master/
+
 echo "Done!"

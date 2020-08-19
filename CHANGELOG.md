@@ -1,3 +1,7 @@
+## Version 2.0:
+
+  - Fix: Updated code to support Gnome Shell 3.36
+
 ## Version 0.7.1:
   - Fix: Fixed an issue with old gtk.
   - Add: Support for Gnome Shell 3.20.
