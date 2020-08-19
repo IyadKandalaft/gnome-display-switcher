@@ -6,12 +6,12 @@ Display Switcher is an extension for gnome-shell 3.36+ that provides an easy and
   - You can choose what you want and not just pressing praying for it.
   - Just press Super + I or configure a custom trigger.
 
-![alt tag](raw/master/demo.jpg)
+![alt tag](demo.jpg)
 
 
 ### Version 
 
-[2.0 - See changelog](https://github.com/lucasdiedrich/gnome-display-switcher/blob/master/CHANGELOG.md)
+[2.0 - See changelog](CHANGELOG.md)
 
 ### Installation
 
@@ -30,7 +30,7 @@ bash -c 'wget -O install-ds.sh https://github.com/iyadkandalaft/gnome-display-sw
 
 Want to contribute? Great! Any kind of contribution is valid. See the Contribution Guide for details.
 
-[Contribution Guide](blob/master/CONTRIBUTING.md)
+[Contribution Guide](CONTRIBUTING.md)
 
 ### Todos
 
@@ -58,7 +58,7 @@ And "feborges", "Jasper" from gnome-shell IRC.
 ### License
  ----
 
-[GPL v2](blob/master/LICENSE)
+[GPL v2](LICENSE)
 
 #### Icons license
 
