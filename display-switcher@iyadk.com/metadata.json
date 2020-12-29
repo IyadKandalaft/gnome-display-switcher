@@ -6,6 +6,6 @@
 	"description": "This extension allows you to toggle between display modes quickly using Super + I.  You can switch between Extended, Primary, Clone, and Secondary Only modes quickly.  Selecting Extended mode multiple times will flip your secondary monitor's relative position to the primary (to the left or right of it).  This extension was originally developed by Lucas Diedrich - https://extensions.gnome.org/extension/1030/display-switcher/ and has been adapted to support Gnome Shell's v3.36.", 
 	"gettext-domain": "gnome-shell-extension-display-switcher",
 	"settings-schema": "org.gnome.shell.extensions.display-switcher",
-	"shell-version": ["3.36"], 
+	"shell-version": ["3.36", "3.38"], 
 	"url": "https://github.com/iyadkandalaft/gnome-display-switcher"
 }
